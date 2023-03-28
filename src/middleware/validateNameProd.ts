@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 import 'dotenv/config';
+// import { string } from 'joi';
 
 const validateNameProduct = async (req: Request, res: Response, next: NextFunction):
 Promise<Response<string> | void> => {
@@ -9,7 +10,7 @@ Promise<Response<string> | void> => {
     return res.status(400).json({ message: '"name" is required' });
   }
   
-  if (name !== 'string') {
+  if (typeof name !== 'string') {
     return res.status(422).json({ message: '"name" must be a string' });
   }
   const caracter = 2;
