@@ -18,3 +18,9 @@ export interface IUsers {
 export interface Users extends IUsers {
   id: number,
 }
+
+export interface IOrders {
+  id: number,
+  userId: number,
+  productsIds: [number],
+}

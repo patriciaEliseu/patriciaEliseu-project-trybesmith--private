@@ -5,10 +5,6 @@ import UserService from '../services/UserService';
 import 'dotenv/config';
 
 const secret = process.env.JWT_SECRET || 'secret';
-// const JWT_CONFIG = {
-//   algorithm: 'HS256',
-//   expiresIn: '7d',
-// };
 
 export default async function insertUser(req: Request, res: Response) {
   try {
@@ -16,11 +12,7 @@ export default async function insertUser(req: Request, res: Response) {
 
     const newUser = await UserService(user);
     console.log('newUser', newUser);
-    // const JWT_CONFIG = {
-    //   algorithm: 'HS256',
-    //   expiresIn: '7d',
-    // };
-    // const { password: _, ...userWithoutPassword } = newUser;
+ 
     const token = jwt.sign({ data: { userId: newUser.id } }, secret);
     return res.status(201).json({ token });
   } catch (error) {

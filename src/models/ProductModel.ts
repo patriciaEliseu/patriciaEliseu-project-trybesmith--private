@@ -6,7 +6,7 @@ export async function getAll(): Promise<Products[]> {
   const query = 'SELECT * FROM Trybesmith.products';
 
   const [productsAll] = await connection.execute(query);
-  console.log('productsAllMod', productsAll);
+  // console.log('productsAllMod', productsAll);
   
   return productsAll as Products[];
 }
