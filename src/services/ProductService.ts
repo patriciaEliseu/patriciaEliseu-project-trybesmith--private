@@ -1,7 +1,12 @@
 import { IProducts } from '../interfaces';
-import ProductModel from '../models/ProductModel';
+import * as ProductModel from '../models/ProductModel';
 
-export default async function insertProduct(product: IProducts) {
-  const data = await ProductModel(product);
+export async function getAll() {
+  const data = await ProductModel.getAll();
+  return data;
+}
+
+export async function insertProduct(product: IProducts) {
+  const data = await ProductModel.insertProduct(product);
   return data;
 }
