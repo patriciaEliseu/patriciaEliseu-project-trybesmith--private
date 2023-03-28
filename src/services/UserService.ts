@@ -3,7 +3,7 @@ import * as UserModel from '../models/UserModel';
 
 export async function insertUser(user: IUsers) {
   const data = await UserModel.insertUser(user);
-  console.log('DATA', data);
+  // console.log('DATA', data);
   
   return data;
 }

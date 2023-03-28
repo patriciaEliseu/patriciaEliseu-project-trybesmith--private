@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-// import * as UserService from '../services/UserService';
+
 import 'dotenv/config';
 
 const validateNameProduct = async (req: Request, res: Response, next: NextFunction):
@@ -14,14 +14,9 @@ Promise<Response<string> | void> => {
   }
   const caracter = 2;
   if (name.length < caracter) {
-    return res.status(422).json({ message: '"name" must be a string' });
+    return res.status(422).json({ message: '"name" length must be at least 3 characters long' });
   }
-  /*  const user = await UserService.login({ username, password });
-  console.log('USER', user);
-   */
-  /*  if (!user) {
-    return res.status(401).json({ message: 'Username or password invalid' });
-  } */
+ 
   next();
 };
 
