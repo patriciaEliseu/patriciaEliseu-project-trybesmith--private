@@ -24,3 +24,8 @@ export interface IOrders {
   userId: number,
   productsIds: [number],
 }
+
+export interface IUsers2 {
+  username: string,
+  password: string,
+}
