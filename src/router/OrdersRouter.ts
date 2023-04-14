@@ -1,8 +1,9 @@
 import express from 'express';
-import OrdersController from '../controllers/OrdersController';
+import validateJWT from '../auth/validateJWT';
+import * as OrdersController from '../controllers/OrdersController';
 
 const router = express.Router();
 
-router.get('/', OrdersController);
-
+router.get('/', OrdersController.getAll);
+router.post('/', validateJWT, OrdersController.insertOrder);
 export = router;

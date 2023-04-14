@@ -24,7 +24,6 @@ export async function login(user: IUsers2): Promise<Users> {
   
   const [[result]] = await connection
     .execute<RowDataPacket[] & Users[]>(query, [username, password]);
-  // console.log('resultModel', result);
-  
+   
   return result;
 }
